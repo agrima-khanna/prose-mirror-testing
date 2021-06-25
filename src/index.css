@@ -1,0 +1,52 @@
+.prosemirror-toolbar {
+  --toolbar-color: #444444 !important; /*changed*/
+  --toolbar-color-hover: #185adb !important; /*changed*/
+  --toolbar-color-inverse: #fff;
+  --toolbar-border-radius: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: center !important; /*added*/
+  color: var(--toolbar-color);
+}
+
+.prosemirror-toolbar-group {
+  white-space: nowrap;
+  border: none !important; /*changed*/
+  border-radius: var(--toolbar-border-radius);
+  margin-bottom: 4px;
+  overflow: hidden;
+}
+
+.prosemirror-toolbar-group:not(:last-child) {
+  margin-right: 25px !important; /*changed*/
+}
+
+.prosemirror-toolbar-item {
+  padding: 6px 12px;
+  font-size: 16px !important; /*changed*/
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  transition: background-color 0.1s;
+}
+
+.prosemirror-toolbar-item:hover {
+  background: none !important;
+  color: var(--toolbar-color-hover) !important; /*changed*/
+}
+
+.prosemirror-toolbar-item[disabled]:not([data-active="true"]) {
+  opacity: 0.2;
+}
+
+.prosemirror-toolbar-item[data-active="true"] {
+  background: none !important;
+  color: var(--toolbar-color-hover) !important; /*changed*/
+}
+
+.prosemirror-toolbar-item:not([disabled]):active {
+  background: none !important;
+  color: var(--toolbar-color-hover) !important;
+}
