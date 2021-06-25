@@ -10,9 +10,18 @@ function findPlaceholder(state, id) {
   let found = decos.find(null, null, (spec) => spec.id === id);
   return found.length ? found[0].from : null;
 }
-
+/* 
+imageUpload function is imported and stored in  { imageUploadCommand} in "./commands.js" 
+and then added as ["action"] for imageUpload button in "./toolbar.js"
+*/
 export var imageUpload = function () {
+  /*
+    passing state, dispatch, view as per other functions defined in @aeaton/prosemirror-commands/index.js
+    */
   return function (state, dispatch, view) {
+    /* 
+      hidden button of input type="file" which is triggered when image upload button of tootlbar is clicked
+      */
     var hiddenUploadButton = document.createElement("input");
     hiddenUploadButton.setAttribute("type", "file");
     console.log("imageUpload called");

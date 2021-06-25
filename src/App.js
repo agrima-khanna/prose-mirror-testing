@@ -11,18 +11,25 @@ import {
 //   toolbar,
 // } from "@aeaton/react-prosemirror-config-default";
 import "./index.css";
-/*custom schema,toolbar,plugins*/
+
+/*
+custom schema,toolbar,plugins
+*/
+
 import { schema } from "./schema";
 import { toolbar } from "./toolbar";
 import { plugins } from "./plugins";
 const initialValue = "<p></p>";
-/*added floater*/
+
+/*
+added floater which has first two groups of toolbar
+*/
 const floatingTools = toolbar.slice(0, 2);
 function App() {
   const [value, setValue] = useState(initialValue);
 
   console.log({ value });
-  console.log(schema);
+
   return (
     <HtmlEditor
       schema={schema}

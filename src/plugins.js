@@ -1,4 +1,4 @@
-/* same as used in @aeaton repo ecept for placeholderPlugin*/
+/* same as used in @aeaton repo except for placeholderPlugin*/
 
 import "prosemirror-gapcursor/style/gapcursor.css";
 import "prosemirror-tables/style/tables.css";
