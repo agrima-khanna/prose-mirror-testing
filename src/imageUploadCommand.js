@@ -7,7 +7,7 @@ function findPlaceholder(state, id) {
   console.log(placeholderPlugin().getState(state));
   let decos = placeholderPlugin().getState(state);
 
-  let found = decos.find(null, null, (spec) => spec.id == id);
+  let found = decos.find(null, null, (spec) => spec.id === id);
   return found.length ? found[0].from : null;
 }
 
