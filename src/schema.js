@@ -1,4 +1,6 @@
-/*same schema as used in the @aeaton repo except for the image node*/
+/*
+same schema as used in the @aeaton/react-prosemirror-config-default repo except for the image node
+*/
 import {
   blockquote,
   bold,
