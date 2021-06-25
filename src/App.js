@@ -11,6 +11,7 @@ import {
 //   toolbar,
 // } from "@aeaton/react-prosemirror-config-default";
 import "./index.css";
+/*custom schema,toolbar,plugins*/
 import { schema } from "./schema";
 import { toolbar } from "./toolbar";
 import { plugins } from "./plugins";
