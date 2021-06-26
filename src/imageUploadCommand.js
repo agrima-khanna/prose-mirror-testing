@@ -2,10 +2,12 @@
 
 import { schema } from "./schema";
 
-import { placeholderPlugin } from "./placeholderPlugin";
+import { plugins } from "./plugins";
+/*importing placeholderPlugin from the array of plugins rather than importing the placeholderPlugin directly*/
+var placeholderPlugin = plugins[11];
 function findPlaceholder(state, id) {
-  console.log(placeholderPlugin().getState(state));
-  let decos = placeholderPlugin().getState(state);
+  //console.log(placeholderPlugin.getState(state));
+  let decos = placeholderPlugin.props.decorations(state);
 
   let found = decos.find(null, null, (spec) => spec.id === id);
   return found.length ? found[0].from : null;
@@ -22,6 +24,7 @@ export var imageUpload = function () {
     /* 
       hidden button of input type="file" which is triggered when image upload button of tootlbar is clicked
       */
+    console.log(view);
     var hiddenUploadButton = document.createElement("input");
     hiddenUploadButton.setAttribute("type", "file");
     console.log("imageUpload called");
@@ -41,7 +44,7 @@ function startImageUpload(view, file) {
   // Replace the selection with a placeholder
   let tr = view.state.tr;
   if (!tr.selection.empty) tr.deleteSelection();
-  tr.setMeta(placeholderPlugin(), { add: { id, pos: tr.selection.from } });
+  tr.setMeta(placeholderPlugin, { add: { id, pos: tr.selection.from } });
   view.dispatch(tr);
 
   uploadFile(file).then(
@@ -55,12 +58,12 @@ function startImageUpload(view, file) {
       view.dispatch(
         view.state.tr
           .replaceWith(pos, pos, schema.nodes.image.create({ src: url }))
-          .setMeta(placeholderPlugin(), { remove: { id } })
+          .setMeta(placeholderPlugin, { remove: { id } })
       );
     },
     () => {
       // On failure, just clean up the placeholder
-      view.dispatch(tr.setMeta(placeholderPlugin(), { remove: { id } }));
+      view.dispatch(tr.setMeta(placeholderPlugin, { remove: { id } }));
     }
   );
 }
