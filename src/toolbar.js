@@ -1,4 +1,6 @@
-/*same as in @aeaton repo except for the image button*/
+/*
+same as in @aeaton/react-prosemirror-config-default except for the image button
+*/
 
 import {
   isBlockActive,

@@ -1,4 +1,7 @@
-/*actions to be performed on button clicks on toolbar*/
+/*
+actions to be performed on button clicks on toolbar
+same as used in @aeaton/react-prosemirror-config-default except for the imageUpload command
+*/
 
 import {
   insertNodeOfType,
